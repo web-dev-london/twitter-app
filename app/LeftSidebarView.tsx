@@ -1,10 +1,10 @@
-import Logo from "@/components/layout/Logo";
+import Logo from "@/components/leftSide/Logo";
 import { BsHouseFill, BsBellFill } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
 import { items } from "@/constants/leftSideItems";
-import SidebarItem from "@/components/layout/SidebarItem";
+import SidebarItem from "@/components/leftSide/SidebarItem";
 import { BiLogOut } from "react-icons/bi"
-import { SidebarTweet } from "@/components/layout/SidebarTweet";
+import { SidebarTweet } from "@/components/leftSide/SidebarTweet";
 
 
 const LeftSidebarView = () => {
