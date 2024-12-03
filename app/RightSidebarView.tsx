@@ -2,7 +2,8 @@ import React from 'react'
 
 const RightSidebarView = () => {
   return (
-    <div>RightSidebarView</div>
+    <>
+    </>
   )
 }
 
