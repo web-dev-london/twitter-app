@@ -3,6 +3,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import LeftSidebarView from './LeftSidebarView'
 import RightSidebarView from './RightSidebarView'
+import Providers from '@/providers/UiProvider'
+import { Modal } from '@/components/Modal'
+import ModalManager from '@/components/ModalManager'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,6 +19,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+
+
   return (
     <html lang="en">
       <body className={`${inter.className} layout`}>

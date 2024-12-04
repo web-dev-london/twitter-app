@@ -16,7 +16,7 @@ const LeftSidebarView = () => {
   return (
     <div className=" h-full">
       <div className="flex flex-col-items-center">
-        <div className="space-y-2">
+        <div>
           <Logo />
           {listOfItems}
           <SidebarItem label="Logout" href="/" icon={BiLogOut} />
