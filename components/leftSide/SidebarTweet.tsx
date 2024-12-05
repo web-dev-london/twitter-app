@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import { FaFeather } from 'react-icons/fa';
 import { Modal } from '../Modal';
+import { LoginModal } from '../modals/LoginModal';
+import { RegisterModal } from '../modals/RegisterModal';
 
 
 
@@ -52,6 +54,8 @@ export const SidebarTweet = () => {
         actionLabel="Confirm"
         footer={<div>Footer Content Here</div>}
       />
+      <LoginModal />
+      <RegisterModal />
     </>
   );
 };
