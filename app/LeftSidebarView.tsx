@@ -1,13 +1,13 @@
 import Logo from "@/components/leftSide/Logo";
-import { BsHouseFill, BsBellFill } from "react-icons/bs";
-import { FaUser } from "react-icons/fa";
-import { items } from "@/constants/leftSideItems";
 import SidebarItem from "@/components/leftSide/SidebarItem";
-import { BiLogOut } from "react-icons/bi"
 import { SidebarTweet } from "@/components/leftSide/SidebarTweet";
+import { items } from "@/constants/leftSideItems";
+import { signOut } from "next-auth/react";
+import { BiLogOut } from "react-icons/bi";
 
 
 const LeftSidebarView = () => {
+
 
   const listOfItems = items.map((item, idx) => (
     <SidebarItem key={`${item.label}-${idx}`} {...item} />
@@ -19,7 +19,13 @@ const LeftSidebarView = () => {
         <div>
           <Logo />
           {listOfItems}
-          <SidebarItem label="Logout" href="/" icon={BiLogOut} />
+
+          <SidebarItem
+            label="Logout"
+            href="/"
+            icon={BiLogOut}
+            onClick={() => signOut()}
+          />
           <SidebarTweet />
         </div>
       </div>

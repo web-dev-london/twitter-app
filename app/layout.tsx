@@ -1,11 +1,10 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import './globals.css'
 import LeftSidebarView from './LeftSidebarView'
 import RightSidebarView from './RightSidebarView'
-import Providers from '@/providers/UiProvider'
-import { Modal } from '@/components/Modal'
-import ModalManager from '@/components/ModalManager'
+import SessionProviderWrapper from '@/providers/SessionProviderWrapper'
+import SessionProviderConsumer from '@/providers/SessionProviderConsumer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,18 +19,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-
-
   return (
     <html lang="en">
       <body className={`${inter.className} layout`}>
-        <aside className="sidebar left-sidebar">
-          <LeftSidebarView />
-        </aside>
-        <main className="main-content">{children}</main>
-        <aside className="sidebar right-sidebar">
-          <RightSidebarView />
-        </aside>
+        <SessionProviderConsumer>
+          <aside className="sidebar left-sidebar">
+            <LeftSidebarView />
+          </aside>
+          <main className="main-content">{children}</main>
+          <aside className="sidebar right-sidebar">
+            <RightSidebarView />
+          </aside>
+        </SessionProviderConsumer>
       </body>
     </html>
   )

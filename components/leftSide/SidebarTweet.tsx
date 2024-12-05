@@ -4,13 +4,15 @@ import { FaFeather } from 'react-icons/fa';
 import { Modal } from '../Modal';
 import { LoginModal } from '../modals/LoginModal';
 import { RegisterModal } from '../modals/RegisterModal';
+import { Toaster } from "react-hot-toast";
+import useLoginModal from '@/hooks/useLoginModal';
+
 
 
 
 export const SidebarTweet = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  void isModalOpen;
+  const loginModal = useLoginModal();
 
 
   useEffect(() => {
@@ -25,17 +27,11 @@ export const SidebarTweet = () => {
   }, []);
 
 
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
-  const handleModalSubmit = () => {
-    console.log('Modal submitted');
-    setIsModalOpen(false);
-  };
 
   return (
     <>
       <button
-        onClick={handleOpenModal}
+        onClick={loginModal.onOpen}
         className=" cursor-pointer mt-6 rounded-full h-10 w-10 p-[10px] 
         md:h-auto md:w-full  md:px-4 md:py-1 flex items-center justify-center bg-sky-500 hover:bg-sky-400 transition ease-in-out outline-none"
       >
@@ -45,17 +41,10 @@ export const SidebarTweet = () => {
           <span className="text-white font-semibold text-[15px]">Tweet</span>
         )}
       </button>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        onSubmit={handleModalSubmit}
-        title="Global Modal Example"
-        body={<div>This modal is accessible from the ModalManager.</div>}
-        actionLabel="Confirm"
-        footer={<div>Footer Content Here</div>}
-      />
+
       <LoginModal />
       <RegisterModal />
+      <Toaster />
     </>
   );
 };

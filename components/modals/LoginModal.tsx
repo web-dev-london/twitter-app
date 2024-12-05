@@ -2,7 +2,8 @@ import useLoginModal from "@/hooks/useLoginModal";
 import { useCallback, useState } from "react";
 import Input from "../Input";
 import { Modal } from "../Modal";
-import { on } from "events";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 import useRegisterModal from "@/hooks/useRegisterModal";
 
 
@@ -26,6 +27,18 @@ export const LoginModal = () => {
   const onSubmit = useCallback(() => {
     try {
       setIsLoading(true);
+
+      axios.post('/api/current', {
+        email,
+        password
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            toast.success('Login successful');
+          } else {
+            toast.error('Login failed');
+          }
+        })
 
       loginModal.onClose();
     } catch (error) {
